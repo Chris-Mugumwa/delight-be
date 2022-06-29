@@ -25,5 +25,5 @@ app.get('/', (req, res) => {
         .catch(error => console.log(error.message));
 });
 app.listen(process.env.PORT || 3001, () => {
-    console.log(`[server] : Server is running at http://localhost:${port}`);
+    console.log(`[server] : Server is running at http://localhost:${process.env.PORT || 3001}`);
 });

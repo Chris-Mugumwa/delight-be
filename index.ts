@@ -19,11 +19,15 @@ let config = {
 app.get('/', (req: Request, res: Response) => {
 	axios(config)
 		.then(response => {
-			res.json({data: response.data})
+			res.json({ data: response.data })
 		})
 		.catch(error => console.log(error.message))
 })
 
 app.listen(process.env.PORT || 3001, () => {
-	console.log(`[server] : Server is running at http://localhost:${port}`)
+	console.log(
+		`[server] : Server is running at http://localhost:${
+			process.env.PORT || 3001
+		}`,
+	)
 })
