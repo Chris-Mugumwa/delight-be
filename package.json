@@ -1,16 +1,29 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "@types/node": "^18.0.0",
-    "axios": "^0.27.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "nodemon": "^2.0.18",
-    "ts-node": "^10.8.1",
-    "typescript": "^4.7.4"
-  }
+	"name": "backend",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"engines": {
+			"node": "14.x",
+	"scripts": {
+		"build": "npx tsc",
+		"start": "node dist/index.js",
+		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+	},
+	"dependencies": {
+		"@types/express": "^4.17.13",
+		"@types/node": "^18.0.0",
+		"axios": "^0.27.2",
+		"concurrently": "^7.2.2",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.1",
+		"express": "^4.18.1",
+		"nodemon": "^2.0.18",
+		"ts-node": "^10.8.1",
+		"twitter-v2": "^1.1.0",
+		"typescript": "^4.7.4"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.12"
+	}
 }
