@@ -5,7 +5,6 @@ import cors from 'cors'
 
 dotenv.config()
 const app: Express = express()
-const port = process.env.PORT || 3001
 
 app.use(cors())
 
@@ -25,6 +24,6 @@ app.get('/', (req: Request, res: Response) => {
 		.catch(error => console.log(error.message))
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3001, () => {
 	console.log(`[server] : Server is running at http://localhost:${port}`)
 })
