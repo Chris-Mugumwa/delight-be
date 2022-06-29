@@ -9,6 +9,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
+const port = process.env.PORT || 3001;
 app.use((0, cors_1.default)());
 let config = {
     method: 'get',
@@ -24,6 +25,4 @@ app.get('/', (req, res) => {
     })
         .catch(error => console.log(error.message));
 });
-app.listen(process.env.PORT || 3001, () => {
-    console.log(`[server] : Server is running at http://localhost:${process.env.PORT || 3001}`);
-});
+app.listen(port);
