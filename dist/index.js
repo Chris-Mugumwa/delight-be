@@ -18,7 +18,7 @@ let config = {
         Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
     },
 };
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     (0, axios_1.default)(config)
         .then(response => {
         res.json({ data: response.data });
