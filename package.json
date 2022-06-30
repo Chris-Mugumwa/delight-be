@@ -4,26 +4,22 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"start": "vercel dev",
-		"deploy": "vercel deploy --prod",
-		"build": "vercel build",
+		"start": "./node_modules/.bin/netlify-lambda serve src",
+		"build": "./node_modules/.bin/netlify-lambda build src",
 		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
 	},
 	"dependencies": {
-		"@types/express": "^4.17.13",
-		"@types/node": "^18.0.0",
 		"axios": "^0.27.2",
 		"concurrently": "^7.2.2",
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.1",
 		"express": "^4.18.1",
+		"netlify-lambda": "^2.0.15",
 		"nodemon": "^2.0.18",
+		"serverless-http": "^3.0.1",
 		"ts-node": "^10.8.1",
 		"twitter-v2": "^1.1.0",
-		"typescript": "^4.7.4",
 		"vercel": "^25.2.2"
 	},
-	"devDependencies": {
-		"@types/cors": "^2.8.12"
-	}
+	"devDependencies": {}
 }

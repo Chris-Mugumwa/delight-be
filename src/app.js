@@ -1,11 +1,11 @@
-import express, { Express, Request, Response } from 'express'
-import axios from 'axios'
-import dotenv from 'dotenv'
-import cors from 'cors'
+const express = require('express')
+const axios = require('axios')
+const dotenv = require('dotenv')
+const cors = require('cors')
+const serverless = require('serverless-http')
 
 dotenv.config()
-const app: Express = express()
-const port = process.env.PORT || 3001
+const app = express()
 const router = express.Router()
 
 app.use(cors())
@@ -18,8 +18,7 @@ let config = {
 	},
 }
 
-router.use('/api')
-app.get('/api', (req: Request, res: Response) => {
+router.get('/', (req, res) => {
 	axios(config)
 		.then(response => {
 			res.json({ data: response.data })
@@ -27,4 +26,6 @@ app.get('/api', (req: Request, res: Response) => {
 		.catch(error => console.log(error.message))
 })
 
-app.listen(port)
+app.use('/', router)
+
+module.exports.handler = serverless(app)
