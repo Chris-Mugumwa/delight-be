@@ -6,6 +6,7 @@ import cors from 'cors'
 dotenv.config()
 const app: Express = express()
 const port = process.env.PORT || 3001
+const router = express.Router()
 
 app.use(cors())
 
@@ -17,6 +18,7 @@ let config = {
 	},
 }
 
+router.use('/api')
 app.get('/api', (req: Request, res: Response) => {
 	axios(config)
 		.then(response => {
