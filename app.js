@@ -2,12 +2,9 @@ const express = require('express')
 const axios = require('axios')
 const dotenv = require('dotenv')
 const cors = require('cors')
-const serverless = require('serverless-http')
 
 dotenv.config()
 const app = express()
-const router = express.Router()
-
 app.use(cors())
 
 let config = {
@@ -18,7 +15,7 @@ let config = {
 	},
 }
 
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
 	axios(config)
 		.then(response => {
 			res.json({ data: response.data })
@@ -26,6 +23,4 @@ router.get('/', (req, res) => {
 		.catch(error => console.log(error.message))
 })
 
-app.use('/.netlify/functions/app', router)
-
-module.exports.handler = serverless(app)
+module.exports = app
